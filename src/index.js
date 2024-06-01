@@ -1,14 +1,19 @@
 import "dotenv/config";
 import express from "express";
 import { sendEmail } from "./mailer.js";
+import { isLastDayOfMonth } from "date-fns";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", async (req, res) => {
   try {
-    await sendEmail();
-    console.log("Email sent");
+    if (isLastDayOfMonth(new Date())) {
+      await sendEmail();
+      res.status(200).send("Email sent successfully");
+    } else {
+      res.status(200).send("Not the last day of the month");
+    }
   } catch (error) {
     console.error("Error occurred:", error.message);
     console.error(error.stack);
