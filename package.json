@@ -1,0 +1,21 @@
+{
+  "name": "cibus-reminder",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Receive a notification at the end of each month to manage your Cibus leftover balance\n\n",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.2",
+    "prettier": "^3.2.5"
+  }
+}
