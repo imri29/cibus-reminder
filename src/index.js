@@ -11,8 +11,7 @@ const isLastDatOfMonth = isLastDayOfMonth(new Date());
 
 app.get("/", async (req, res) => {
   try {
-    if (true) {
-      console.log("Last day of the month");
+    if (isLastDatOfMonth) {
       await sendEmail();
       res.status(200).send("Email sent successfully");
     } else {
