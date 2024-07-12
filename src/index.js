@@ -5,10 +5,14 @@ import { isLastDayOfMonth } from "date-fns";
 
 const app = express();
 const port = process.env.PORT || 3000;
+const host = "0.0.0.0";
+
+const isLastDatOfMonth = isLastDayOfMonth(new Date());
 
 app.get("/", async (req, res) => {
   try {
-    if (isLastDayOfMonth(new Date())) {
+    if (true) {
+      console.log("Last day of the month");
       await sendEmail();
       res.status(200).send("Email sent successfully");
     } else {
@@ -23,6 +27,6 @@ app.get("/", async (req, res) => {
   }
 });
 
-app.listen(Number(port), "0.0.0.0", () => {
-  console.log(`Server running on 0.0.0.0:${port}`);
+app.listen(Number(port), host, () => {
+  console.log(`Server running on ${host}:${port}`);
 });
