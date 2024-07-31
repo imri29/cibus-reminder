@@ -15,7 +15,11 @@ app.get("/", async (req, res) => {
       await sendEmail();
       res.status(200).send("Email sent successfully");
     } else {
-      res.status(200).send("Not the last day of the month");
+      res
+        .status(200)
+        .send(
+          `Not the last day of the month | today's date: ${new Date()} | isLastDay: ${isLastDayOfMonth(new Date())}`,
+        );
     }
   } catch (error) {
     console.error("Error occurred:", error.message);
